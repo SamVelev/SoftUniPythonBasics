@@ -17,16 +17,10 @@ total_sum = number_puzzles * 2.60 + number_dolls * 3 + number_teddy_bears * 4.10
             number_minions * 8.20 + number_trucks * 2
 
 if total_toys >= 50:
-    discount_25 = 0.25 * total_sum
-    final_price = total_sum - discount_25
-    rent = 0.1 * final_price
-    profit = final_price - rent
-    money_left = profit - price_for_vacation
+    total_sum *= 0.75
+total_sum *= 0.90
+money_left = abs(total_sum - price_for_vacation)
+if total_sum >= price_for_vacation:
     print(f"Yes! {money_left:.2f} lv left.")
-
 else:
-    rent = 0.1 * total_sum
-    profit = total_sum - rent
-    money_left = profit - price_for_vacation
-    abs_value = abs(money_left)
-    print(f"Not enough money! {abs_value:.2f} lv needed.")
+    print(f"Not enough money! {money_left:.2f} lv needed.")
